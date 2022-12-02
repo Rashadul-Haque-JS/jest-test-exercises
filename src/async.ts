@@ -71,31 +71,22 @@ export const fetchData = async <T>(array: T[]): Promise<ApiResponse<T>> => {
 };
 
 // Format group for excercise 9, d3
-const formatGroup = async (n: number) => {
+const formatGroup = async (num: number) => {
   const usersRes = await fetchData(mockUsers);
-  const groupsRes = await fetchData(groups);
 
-  if (usersRes.status === "error" || groupsRes.status === "error") {
-    throw new Error("error fetching data");
+  if (usersRes.status === "error") {
+    throw new Error("error in fetching data");
   }
 
   const array: string[] = [];
 
   for (let user of usersRes.data) {
-    if (user.group === n) {
+    if (user.group === num) {
       array.push(user.name);
     }
   }
 
-  let groupData;
-
-  for (let object of groupsRes.data) {
-    if (object.id === n) {
-      groupData = object;
-      groupData.users = array;
-    }
-  }
-  return groupData;
+  return array;
 };
 
 // actual formula for exc 9, d3
@@ -105,12 +96,15 @@ export const getGroupsWithUsers = async () => {
   if (groupsRes.status === "error") {
     throw new Error("error fetching data");
   }
+
   for (let group of groupsRes.data) {
     const data = await formatGroup(group.id);
     if (data) {
-      arrayOfGroups.push(data);
+      group.users = data;
     }
+    arrayOfGroups.push(group);
   }
   console.log(arrayOfGroups);
   return arrayOfGroups;
 };
+
