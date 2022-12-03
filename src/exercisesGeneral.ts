@@ -1,4 +1,4 @@
-// 'refected' is just a variable which contains codes that've been refacted
+// 'refactored' is just a variable which contains codes that've been refactored
 
 export const validateEmail = (email: string) => {
   
@@ -52,8 +52,8 @@ export const isLowerCase = (str: string) => {
 };
 
 export const isPrimeNumber = (num: number) => {
-  const refacted = num % 2 == 0 && num > 2;
-  if (num <= 1 || refacted) return `is not a prime number`;
+  const refactored = num % 2 == 0 && num > 2;
+  if (num <= 1 || refactored) return `is not a prime number`;
   const s = Math.sqrt(num);
   for (let i = 3; i <= s; i += 2) {
     if (num % i === 0) return `is not a prime number`;
@@ -64,8 +64,8 @@ export const isPrimeNumber = (num: number) => {
 export const getGenitive = (str: string, genitiveForm: string) => {
   const name = str.toLowerCase();
   let genitive;
-  const refacted = name.length - 1;
-  if (name.charAt(refacted) === "s") {
+  const refactored = name.length - 1;
+  if (name.charAt(refactored) === "s") {
     genitive = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
   } else {
     genitive = `${name.charAt(0).toUpperCase() + name.slice(1)}s`;

@@ -1,13 +1,13 @@
 import { mockUsers, TUser, Group, fetchData, groups } from "./typesAndData";
 
-//'refected' is just a variable which contains codes that've been refacted
+//'refactored' is just a variable which contains codes that've been refactored
 
 // Format group for excercise 9, d3
 const formatGroup = async (num: number) => {
   const usersRes = await fetchData(mockUsers);
 
-  const refacted = usersRes.status === "error";
-  if (refacted) {
+  const refactored = usersRes.status === "error";
+  if (refactored) {
     throw new Error("error in fetching data");
   }
 
@@ -27,8 +27,8 @@ export const getGroupsWithUsers = async () => {
   const arrayOfGroups: Group[] = [];
   const groupsRes = await fetchData(groups);
 
-  const refacted = groupsRes.status === "error";
-  if (refacted) {
+  const refactored = groupsRes.status === "error";
+  if (refactored) {
     throw new Error("error fetching data");
   }
 
@@ -49,8 +49,8 @@ export const getUsersWithGroup = async () => {
   const usersRes = await fetchData(mockUsers);
   const groupsRes = await fetchData(groups);
 
-  const refacted = usersRes.status === "error" || groupsRes.status === "error";
-  if (refacted) {
+  const refactored = usersRes.status === "error" || groupsRes.status === "error";
+  if (refactored) {
     throw new Error("error in fetching data");
   }
 
@@ -80,11 +80,11 @@ export const getUser = async (str: string, caseSensative?: boolean) => {
   const queryCase = str.charAt(0);
   const isCaseSensitive = caseSensative;
 
-  const refacted =
+  const refactored =
     queryCase.toUpperCase() === queryCase &&
     (!isCaseSensitive || isCaseSensitive);
 
-  if ((queryCase.toUpperCase() !== queryCase && !isCaseSensitive) || refacted) {
+  if ((queryCase.toUpperCase() !== queryCase && !isCaseSensitive) || refactored) {
     usersRes.data.filter((user) => {
       const newStr: string = str.charAt(0).toUpperCase() + str.slice(1);
 
