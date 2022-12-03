@@ -70,7 +70,7 @@ export const getUsersWithGroup = async () => {
   return groupByUsers;
 };
 
-// exc 9, D4 > Using HOF
+// exc 9, D5 > Using HOF
 
 export const getUser = async (str: string, caseSensative?: boolean) => {
   let output: any = {};
