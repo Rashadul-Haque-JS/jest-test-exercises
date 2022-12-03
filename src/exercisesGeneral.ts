@@ -1,7 +1,9 @@
-import { User, fetchData, mockUsers, groups } from "./async";
+// 'refected' is just a variable which contains codes that've been refacted
+
 export const validateEmail = (email: string) => {
-  const validEmail =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+  const validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   if (email === email.toLocaleLowerCase() && email.match(validEmail)) {
     return true;
   }
@@ -9,9 +11,7 @@ export const validateEmail = (email: string) => {
   return "invalid email";
 };
 
-export const validateZip = (zip: string) => {
-  return zip === "12345";
-};
+export const validateZip = (zip: string) => zip === "12345";
 
 export const makeHeading = (str: string, num: number) => {
   return `<h${num}>${str}</h${num}>`;
@@ -52,7 +52,8 @@ export const isLowerCase = (str: string) => {
 };
 
 export const isPrimeNumber = (num: number) => {
-  if (num <= 1 || (num % 2 == 0 && num > 2)) return `is not a prime number`;
+  const refacted = num % 2 == 0 && num > 2;
+  if (num <= 1 || refacted) return `is not a prime number`;
   const s = Math.sqrt(num);
   for (let i = 3; i <= s; i += 2) {
     if (num % i === 0) return `is not a prime number`;
@@ -61,10 +62,10 @@ export const isPrimeNumber = (num: number) => {
 };
 
 export const getGenitive = (str: string, genitiveForm: string) => {
-  // returns boolean
   const name = str.toLowerCase();
   let genitive;
-  if (name.charAt(name.length - 1) === "s") {
+  const refacted = name.length - 1;
+  if (name.charAt(refacted) === "s") {
     genitive = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
   } else {
     genitive = `${name.charAt(0).toUpperCase() + name.slice(1)}s`;

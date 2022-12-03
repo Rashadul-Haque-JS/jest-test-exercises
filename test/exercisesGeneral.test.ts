@@ -8,7 +8,7 @@ import {
   isLowerCase,
   isPrimeNumber,
   getGenitive,
-} from "../src/exercises";
+} from "../src/exercisesGeneral";
 
 //Exc 2
 describe("Email validation", () => {
