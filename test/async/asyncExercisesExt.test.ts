@@ -1,4 +1,4 @@
-import { getUsersWithGroup, getUser } from "../../src/exercisesAsync";
+import { getUsersWithGroup, getUserByName } from "../../src/exercisesAsync";
 
 // Exercise 9 , D4
 describe("Get user with group", () => {
@@ -21,21 +21,21 @@ describe("Get user with group", () => {
 describe("User case sensative ", () => {
 // lowercase and false
   it("should return expected data", async () => {
-    expect(await getUser("lisa", false)).toEqual({ name: "Lisa", group: 2 });
+    expect(await getUserByName("lisa", false)).toEqual({ name: "Lisa", group: 2 });
   });
 
   //   lowercase and ture
   it("should return undefined", async () => {
-    expect(await getUser("lisa", true)).toBe(undefined);
+    expect(await getUserByName("lisa", true)).toBe(undefined);
   });
 
 //   uppercase and true
   it("should return expected data", async () => {
-    expect(await getUser("Lisa", true)).toEqual({ name: "Lisa", group: 2 });
+    expect(await getUserByName("Lisa", true)).toEqual({ name: "Lisa", group: 2 });
   });
 
 //   uppercase and false
   it("should return expected data", async () => {
-    expect(await getUser("Eva", false)).toEqual({ name: "Eva", group: 1 });
+    expect(await getUserByName("Eva", false)).toEqual({ name: "Eva", group: 1 });
   });
 });

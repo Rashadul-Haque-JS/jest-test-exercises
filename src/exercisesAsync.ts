@@ -72,13 +72,13 @@ export const getUsersWithGroup = async () => {
 
 // exc 9, D5 > Using HOF
 
-export const getUser = async (str: string, caseSensative?: boolean) => {
+export const getUserByName = async (str: string, caseSensitive?: boolean) => {
   let output: any = {};
   const usersRes = await fetchData(mockUsers);
   if (usersRes.status === "error") throw new Error("error in fetching data");
 
   const queryCase = str.charAt(0);
-  const isCaseSensitive = caseSensative;
+  const isCaseSensitive = caseSensitive;
 
   const refactored =
     queryCase.toUpperCase() === queryCase &&
